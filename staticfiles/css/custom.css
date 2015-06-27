@@ -1,0 +1,77 @@
+/*-------------------------
+	General Styles
+--------------------------*/
+
+body{
+	font-family : Arial, sans-serif;
+	width: 100%;
+	padding-top: 150px;
+	background-color: #FFFACD;
+}
+
+a{
+	color :#F4A460 !important;
+}
+
+hr { display: block; height: 1px;
+    border: 0; border-top: 1px solid #D2B48C;
+    margin: 1em 0; padding: 0; }
+
+/*-----------------------------------
+	Navigation Bar Styles
+------------------------------------*/
+
+.navbar{
+	padding: 45px 0;
+	background-color: #FFFACD;
+	transition:padding 0.4s;
+}
+
+
+/* Contract the navbar while scrolling */
+
+.navbar.scrolled{
+	box-shadow: 0 3px 3px rgba(0,0,0,0.1);
+	padding: 16px 0;
+}
+
+/* Brand name */
+
+.brandStyle{
+	color: #FF851B !important;
+	font-family : Josefin Slab, serif;
+	font-size: 48px;
+}
+
+#tags{
+	border: 1px solid #D2B48C;
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+	border-bottom-left-radius: 25px;
+	border-bottom-right-radius: 25px;
+	margin: 10%;
+	padding: 10%;
+}
+
+
+#bio{
+	border: 1px solid #D2B48C;
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+	border-bottom-left-radius: 25px;
+	border-bottom-right-radius: 25px;
+	margin: 10%;
+	padding: 10%;
+}
+
+#post-title{
+
+}
+
+#post-time{
+
+}
+
+#post-content{
+
+}

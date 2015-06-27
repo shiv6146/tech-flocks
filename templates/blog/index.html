@@ -1,0 +1,98 @@
+{% include 'blog/nav.html' %}
+<head><title>TechFlocks | Home</title></head>
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-sm-8 blog-main">
+
+          {% if posts %}
+          {% for post in posts %}
+          <div class="blog-post">
+            <a class="blog-post-title" id="post-title" href="{{ post.url }}">{{ post.title }}</a>
+            <p class="blog-post-meta" id="post-time">Posted on <em>{{ post.date }}</em></p>
+            <p class="blog-post-meta" id="like_count"><strong>{{ post.likes }}</strong> Likes</p>
+            {% if user.is_authenticated %}
+                <button id="like" data-catid="{{ post.id }}" class="btn btn-info btn-xs" type="button">
+                <span class="glyphicon glyphicon-thumbs-up"></span>
+                Like
+                </button>
+            {% endif %}
+          </div><!-- /.blog-post -->
+          <hr>
+          {% endfor %}
+          {% endif %}
+
+          <ul class="pager">
+            {% if posts.has_previous %}
+                <li><a href="?page={{ posts.previous_page_number }}">Previous</a></li>
+            {% endif %}
+
+            <span class="current">
+                Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+            </span>
+
+            {% if posts.has_next %}
+                <li><a href="?page={{ posts.next_page_number }}">Next</a></li>
+            {% endif %}
+        </ul>
+
+          <!-- <nav>
+            <ul class="pager">
+              <li><a href="#">Previous</a></li>
+              <li><a href="#">Next</a></li>
+            </ul>
+          </nav> -->
+
+        </div><!-- /.blog-main -->
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+
+      var nav = $('.navbar'),
+        doc = $(document),
+        win = $(window);
+
+      win.scroll(function() {
+
+        if (doc.scrollTop() > 80) {
+          nav.addClass('scrolled');
+        } else {
+          nav.removeClass('scrolled');
+        }
+
+      });
+
+      // Trigger the scroll listener on page load
+      
+      win.scroll();
+
+      $('#like').click(function(){
+          var postid;
+          postid = $(this).attr("data-catid");
+          $.get('/post/like/', {post_id: postid}, function(data){
+                     $('#like_count').html('<strong>'+data+'</strong> Likes');
+                     $('#like').hide();
+          });
+      });
+
+    });
+    </script>
+
+
+  </body>
+
+</html>

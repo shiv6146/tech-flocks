@@ -1,0 +1,35 @@
+{% load crispy_forms_tags %}
+{% include 'blog/nav.html' %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TechFlocks | Login</title>
+    </head>
+
+    <body>
+
+        <div class="row">
+        <div class="col-md-offset-3 col-md-offset-6">
+        <h1>Login to TechFlocks</h1>
+
+        <form id="login_form" method="post" action="">
+            {% csrf_token %}
+            <div class="row">
+            <div class="col-md-6">
+            Username: <input type="text" name="username" value="" size="50" />
+            </div>
+            </div>
+            <br />
+            <div class="row">
+            <div class="col-md-6">
+            Password: <input type="password" name="password" value="" size="50" />
+            <br />
+            </div>
+            </div>
+
+            <input type="submit" value="submit" />
+        </form>
+        </div>
+        </div>
+    </body>
+</html>

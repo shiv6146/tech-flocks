@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Slab:300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+
+    <style type="text/css">
+      /*-------------------------
+        General Styles
+      --------------------------*/
+
+      body{
+        font-family : Arial, sans-serif;
+        width: 100%;
+        padding-top: 150px;
+        background-color: #FFFACD;
+      }
+
+      a{
+        color :#F4A460 !important;
+      }
+
+      hr { display: block; height: 1px;
+          border: 0; border-top: 1px solid #D2B48C;
+          margin: 1em 0; padding: 0; }
+
+      /*-----------------------------------
+        Navigation Bar Styles
+      ------------------------------------*/
+
+      .navbar{
+        padding: 45px 0;
+        background-color: #FFFACD;
+        transition:padding 0.4s;
+      }
+
+
+      /* Contract the navbar while scrolling */
+
+      .navbar.scrolled{
+        box-shadow: 0 3px 3px rgba(0,0,0,0.1);
+        padding: 16px 0;
+      }
+
+      /* Brand name */
+
+      .brandStyle{
+        color: #FF851B !important;
+        font-family : Josefin Slab, serif;
+        font-size: 48px;
+      }
+
+      #tags{
+        border: 1px solid #D2B48C;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+        margin: 10%;
+        padding: 10%;
+      }
+
+
+      #bio{
+        border: 1px solid #D2B48C;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+        margin: 10%;
+        padding: 10%;
+      }
+
+      #post-title{
+
+      }
+
+      #post-time{
+
+      }
+
+      #post-content{
+
+      }
+    </style>
+    
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top noBorder" role="navigation">
+      <div class="container">
+        
+        <div class="navbar-header">
+          <a class="navbar-brand brandStyle" href="#">TechFlocks</a>
+        </div>
+
+        <div class="collapse navbar-collapse noPadding" id="myNavbar">
+            <div class="navbar-right menustyle">
+              <ul class="nav navbar-nav">
+                {% if user.is_authenticated %}
+                <a href="/logout/">Logout</a><br />
+                <a href="/addPost/">Add Post</a><br />
+                {% else %}
+                <a href="/register/">Register Here</a><br />
+                <a href="/login/">Login</a><br />
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        
+      </div>
+    </nav>
+    </body>
+    </html>
